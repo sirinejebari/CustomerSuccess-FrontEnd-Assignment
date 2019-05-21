@@ -1,3 +1,18 @@
-<p>
-  search-container works!
-</p>
+<div class="card">
+  <div class="search-container">
+    <div class="field" style="width: 50%">
+      <div class="control">
+
+        <input class="input is-primary" [formControl]="searchForm" type="text" formControlName=""
+          placeholder="find a geek...">
+      </div>
+    </div>
+    <a (click)=fetchResults() class="button is-black" style="width: 30%"><i class="fas fa-search"></i> &nbsp; Search</a>
+
+  </div>
+  <div class="results-area" *ngIf="results.length">
+    <p>Showing {{results.length}} out of {{totalCount}} resuls.</p>
+      <div class="results"><profile (buttonClick)=goToProfile(user.login) (click)=goToProfile(user.login) *ngFor="let user of results" [user]="user"></profile>
+      </div>
+  </div>
+</div>

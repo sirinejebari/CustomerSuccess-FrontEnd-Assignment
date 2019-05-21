@@ -1,0 +1,9 @@
+<div class=" profile-card tile is-parent">
+    <article class="tile is-child notification is-outlined">
+      <p>{{user.login}}</p>
+      <figure class="image is-64x64">
+        <img [src]="user.avatar_url">
+      </figure>
+      <a class="button is-small" style="margin-top: 8px" click=emitClickOnButtin()>Visit Repos</a>
+    </article>
+  </div>

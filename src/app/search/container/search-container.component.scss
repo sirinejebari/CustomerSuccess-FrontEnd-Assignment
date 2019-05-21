@@ -1,0 +1,19 @@
+.search-container{
+    padding: 64px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
+}
+.results-area{
+    padding: 8px;
+p {
+    margin:  0.75rem;
+color: lightgray
+}
+    .results{
+        
+        display: grid;
+      grid-template-columns: auto auto auto;
+    }
+}
