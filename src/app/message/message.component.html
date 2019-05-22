@@ -1,0 +1,8 @@
+<article *ngIf="message" class="message is-small" [ngClass]="message.type">
+    <div class="message-header">
+        <p>{{message.title}}</p>
+        <button class="delete is-small" onClick={this.hideMessage} aria-label="delete"></button>
+    </div>
+    <div class="message-body">
+        {{message.message}}</div>
+</article>

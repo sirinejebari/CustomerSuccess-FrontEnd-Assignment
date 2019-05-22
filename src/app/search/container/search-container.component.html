@@ -2,17 +2,23 @@
   <div class="search-container">
     <div class="field" style="width: 50%">
       <div class="control">
+        <form [formGroup]="searchForm">
 
-        <input class="input is-primary" [formControl]="searchForm" type="text" formControlName=""
-          placeholder="find a geek...">
+          <input class="input is-primary" [formControlName]="'query'" type="text" formControlName=""
+            placeholder="find a geek...">
+        </form>
       </div>
-    </div>
-    <a (click)=fetchResults() class="button is-black" style="width: 30%"><i class="fas fa-search"></i> &nbsp; Search</a>
 
+
+    </div>
+    <a (click)=fetchResults() class="button is-black" style="width: 30%"><i class="fas fa-search"></i> &nbsp;
+      Search</a>
   </div>
   <div class="results-area" *ngIf="results.length">
     <p>Showing {{results.length}} out of {{totalCount}} resuls.</p>
-      <div class="results"><profile (buttonClick)=goToProfile(user.login) (click)=goToProfile(user.login) *ngFor="let user of results" [user]="user"></profile>
-      </div>
+    <div class="results">
+      <profile (buttonClick)=goToProfile(user.login) (click)=goToProfile(user) *ngFor="let user of results"
+        [user]="user"></profile>
+    </div>
+
   </div>
-</div>

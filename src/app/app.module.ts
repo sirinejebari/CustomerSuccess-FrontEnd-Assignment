@@ -7,19 +7,26 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchModule } from './search/search.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GitService } from './services/git.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile/profile.component';
 import { SearchContainerComponent } from './search/container/search-container.component';
-
+import { users, messages } from './store/reducer';
+import { UserReposComponent } from './user-repos/user-repos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageComponent } from './message/message.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProfileComponent,
-    SearchContainerComponent
+    SearchContainerComponent,
+    UserReposComponent,
+    NotFoundComponent,
+    MessagesComponent,
+    MessageComponent
   ],
   imports: [
     HttpClientModule,
@@ -31,6 +38,10 @@ import { SearchContainerComponent } from './search/container/search-container.co
     StoreDevtoolsModule.instrument({
         maxAge: 25, // Retains last 25 states
       }),
+      StoreModule.forRoot({
+        selectedUser: users,
+        messages: messages
+      })
   ],
   providers: [GitService],
   bootstrap: [AppComponent]

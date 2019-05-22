@@ -1,0 +1,29 @@
+<div class="container card">
+
+  <div class="user">
+    <article class="tile is-child notification is-outlined">
+      <p>{{user.login}}</p>
+      <figure class="image is-64x64">
+        <img [src]="user.avatar_url">
+      </figure>
+    </article>
+  </div>
+  <div class="repos-list" *ngIf="repos.length">
+    <div class="repo is-outlined" *ngFor="let repo of repos">
+      <div>
+        <div class="repo-title">
+          <strong>{{repo.name}}</strong> &nbsp;
+          <span class="full-name details">({{repo.full_name}})</span>
+            &nbsp; <span *ngIf="repo.private" class="private details"> <i class="fas fa-lock"></i></span>
+          &#8226; <span class="details"><i class="fas fa-code-branch"></i> &nbsp; {{repo.forks_count}}</span>
+          &#8226; <span class="details"> Last updated &nbsp; {{repo.updated_at | date}}</span>
+        </div>
+        <div class="description" *ngIf="repo.description">
+          {{repo.description.substring(1, 100)}}
+        </div>
+      </div>
+      <a class="button is-small is-primary is-outlined" (click)="goToRepo(repo.name)">Visit</a>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,43 @@
+
+.container {
+    padding: 15px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
+    .user{
+        width: 100%;
+        img{
+            border-radius: 50px;
+            width: 100px;
+        }
+        .notification{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    
+    .repos-list{
+        width: 80%;
+        padding: 32px;
+        .repo{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 16px;
+            .description, .details{
+                font-size: small
+            }
+        }
+
+        .full-name{
+            color: lightgrey
+        }
+        .repo:hover{
+            cursor: pointer;
+            box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1)
+        }
+    }
+    
+}
