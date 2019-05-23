@@ -5,6 +5,17 @@
     flex-direction: row;
     justify-content: space-around
 }
+.loading{
+    padding: 64px;
+    text-align: center;
+    width: 100%
+}
+
+.pagination{
+    justify-content: space-around;
+    width: 100%;
+    padding: 32px
+}
 .results-area{
     padding: 8px;
 p {
@@ -12,8 +23,27 @@ p {
 color: lightgray
 }
     .results{
-        
+        justify-content: center;
         display: grid;
-      grid-template-columns: auto auto auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .results{
+        grid-template-columns: 90%;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .results{
+        grid-template-columns: 45% 45%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .results{
+        grid-template-columns: 32% 32% 32%;
     }
 }

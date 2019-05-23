@@ -3,6 +3,7 @@ import { MessageInterface } from './interfaces/interfaces';
 import { Observable } from 'rxjs/internal/Observable';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.state';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,15 @@ export class AppComponent {
   title = 'assignment';
   messages: MessageInterface[]
   messagesSubscription: Observable<MessageInterface[]>;
+  subscription: Subscription
 
   ngOnInit() {
-    this.messagesSubscription.subscribe((msgs: MessageInterface[]) => {
-      console.log(msgs)
+    this.subscription = this.messagesSubscription.subscribe((msgs: MessageInterface[]) => {
       this.messages = msgs
     })
+  }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe()
   }
 }

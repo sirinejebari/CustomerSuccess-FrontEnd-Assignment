@@ -1,9 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    height: -webkit-fill-available;
-    background-color: #ececec
-}
+
 
 .width80{
     width: 80%
 }
+html, body{
+    padding: 0;
+    margin: 0;
+  }
+  html{
+    height: 100%;
+  }
+  body{
+    background-color: #ececec;
+
+    min-height: 100%;
+  }

@@ -41,4 +41,4 @@ export interface Repo {
   forks_count: number;
   }
 
-  export  interface MessageInterface {title: string; message: string; type: string, msgKey: string}
+  export  interface MessageInterface {title: string; message: string; type: string, id: number}

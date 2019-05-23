@@ -1,4 +1,7 @@
 <div class="container card">
+  <div class="back-button">
+      <a class="button is-small is-dark" (click)="goBack()"><i class="fas fa-home"></i> &nbsp; Back</a>
+  </div>
 
   <div class="user">
     <article class="tile is-child notification is-outlined">
@@ -22,7 +25,7 @@
           {{repo.description.substring(1, 100)}}
         </div>
       </div>
-      <a class="button is-small is-primary is-outlined" (click)="goToRepo(repo.name)">Visit</a>
+      <a class="button is-small is-primary is-outlined" (click)="goToRepo(repo.html_url)">Visit</a>
     </div>
 
   </div>

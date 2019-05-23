@@ -4,7 +4,8 @@
       <div class="control">
         <form [formGroup]="searchForm">
 
-          <input class="input is-primary" [formControlName]="'query'" type="text" formControlName=""
+          <input
+          (keydown.enter)="fetchResults()" class="input is-primary" [formControlName]="'query'" type="text" formControlName=""
             placeholder="find a geek...">
         </form>
       </div>
@@ -14,11 +15,16 @@
     <a (click)=fetchResults() class="button is-black" style="width: 30%"><i class="fas fa-search"></i> &nbsp;
       Search</a>
   </div>
-  <div class="results-area" *ngIf="results.length">
+  <div *ngIf="loading" class="loading">Loading....</div>
+  <div class="results-area" *ngIf="results.length && !loading">
     <p>Showing {{results.length}} out of {{totalCount}} resuls.</p>
     <div class="results">
       <profile (buttonClick)=goToProfile(user.login) (click)=goToProfile(user) *ngFor="let user of results"
         [user]="user"></profile>
     </div>
+    <div class="pagination" *ngIf="hasPagination && !loading">
+        <a class="button is primary is-outlined" (click)="goToPreviousPage()" *ngIf="page > 1">Previous page</a>
+        <a class="button is primary is-outlined" (click)="goToNextPage()" *ngIf="page < numberOfPages">Next page</a>
+      </div>
 
   </div>

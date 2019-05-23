@@ -21,11 +21,15 @@ export function users(state: SelectedUser = initialState.SelectedUser, action: A
     }
 }
 export function messages(state: MessageInterface[] = initialState.messages, action: Actions.Actions) {
-    console.log(action.type)
-
     switch (action.type) {
         case Actions.ADD_MESSAGE:
+            action.payload.id = state.length;
             return [...state, action.payload];
+        case Actions.REMOVE_MESSAGE:
+            
+            return state.filter(msg => {
+                return msg.id !== action.payload
+            });
         default:
             return state;
     }
